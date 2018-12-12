@@ -1,0 +1,12 @@
+When working using numpy do not load float values into opencv
+
+For a Grayscale image:
+  If loading float values, then limits for each pixel 0.0 - 1.0
+  If loading int values, then limits for each pixel 0 - 255
+
+  So convert appropriately before viewing using imshow
+
+  Conversion:
+  To Int (0-255): im = np.array(numpyImgArr, dtype = np.uint8)
+  To Int (0-1.0): im = np.array(numpyImgArr, dtype = np.float64)
+  Then: cv2.imshow( "video", im);
