@@ -7,7 +7,7 @@ A Heatmap Visualizer for Surveillance Video Feeds written in Python. Computes th
 - Numpy
 
 ##Demo
-- Run the file demo-overall.py
+- Run the file demo-frame-by-frame.py or demo-overall.py
 
 ##Usage
 	- Under development. Currently for presentational purposes only.
