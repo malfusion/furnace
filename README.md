@@ -4,6 +4,11 @@ A Heatmap Visualizer for Video Feeds written in Python.
 - The algorithm can be switched out to perform anything, from motion detection, to gaze detection, to motion vector computations.
 - The requirement is that for 60 seconds of video frames provided as input, the algorithm must output 60 activation images. 
 
+## Demo
+#### Click below for video output
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1jSxBtUcsRI/0.jpg)](https://www.youtube.com/watch?v=1jSxBtUcsRI)
+
+
 ## Architecture
 ![Image description](./docs/architecture.png)
 - The client first obtains the large videos, breaks them up into 1 minute chunks. These chunks are uploaded straight to the AWS endpoint. Entries are created in the DB for the same.
