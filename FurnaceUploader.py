@@ -1,5 +1,7 @@
 from confluent_kafka import Producer
 from FrameExtractor import FrameExtractor
+from KafkaUtils import kafkaDeliveryReport
+from CVUtils import resizeFrame, showFrame
 import cv2
 import json
 
@@ -25,25 +27,11 @@ class FurnaceUploader():
     def uploadFile(self, filepath):
         frameExtractor = FrameExtractor(filepath, 1)
         for (sec, frame) in frameExtractor.getNextFrame():
-            resizedFrame = _resizeFrame(frame, 640, 480) 
-            _showFrame(resizedFrame)
+            resizedFrame = resizeFrame(frame, 640, 480) 
+            showFrame(resizedFrame)
 
 
 
-
-def _kafkaDeliveryReport(err, msg):
-        """ Called once for each message produced to indicate delivery result.
-            Triggered by poll() or flush(). """
-        if err is not None:
-            print('Message delivery failed: {}'.format(err))
-        else:
-            print('Message delivered to {} [{}]'.format(msg.topic(), msg.partition()))
-
-def _resizeFrame(frame, width, height):
-    return cv2.resize(frame, (width, height)) 
-
-def _showFrame(frame):
-    return cv2.imshow('video', frame) 
 
 
 
